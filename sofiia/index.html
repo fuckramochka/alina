@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Агро-проєкт: Огірковий Тріумф | Мачур Аліна 7-Б клас</title>
+  <meta name="description" content="Шкільний дослідницький проєкт учениці 7-Б класу Мачур Аліни про вирощування огірків до 25 липня, збір врожаю, дегустацію та закрутку 4 банок на зиму.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥒</text></svg>">
+</head>
+<body>
+
+  <!-- Ambient Canvas Background -->
+  <canvas id="ambientCanvas" class="ambient-bg"></canvas>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confettiCanvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9998;"></canvas>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="#" class="logo-badge">
+        <div class="logo-icon">🥒</div>
+        <div class="logo-text">
+          <h1>Огірковий Тріумф</h1>
+          <p>Мачур Аліна • 7-Б клас</p>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">Про проєкт</a></li>
+          <li><a href="#growth">Вирощування</a></li>
+          <li><a href="#harvest">Збір 25 липня</a></li>
+          <li><a href="#tasting">Дегустація</a></li>
+          <li><a href="#jars">4 Банки на зиму</a></li>
+          <li><a href="#diploma">Висновки</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="soundToggleBtn" class="btn-sound" title="Увімкнути/Вимкнути звук">🔊</button>
+        <button id="btnStartPres" class="btn-presentation">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          Слайд-шоу для класу
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="about">
+      <div class="container">
+        <div class="hero-pill">
+          <span class="dot"></span>
+          Літній дослідницький біо-проєкт 2026
+        </div>
+
+        <h1 class="hero-title">
+          Як виростити справжній <br>
+          <span class="gradient-text">Огірковий Шедевр</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Практичний щоденник та яскравий звіт про те, як огірки росли та набиралися сили до 25 липня, дарували соковитий хрускіт і стали стратегічним запасом із 4 банок на зиму!
+        </p>
+
+        <div class="author-chip">
+          <div class="author-avatar">👩‍🌾</div>
+          <div class="author-info">
+            <div class="author-name">Мачур Аліна</div>
+            <div class="author-school">Учениця 7-Б класу • Юний агроном-дослідник</div>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px;">
+          <a href="#growth" class="interactive-crunch-btn" style="text-decoration: none;">
+            <span>Читати історію проєкту</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </a>
+          <button id="btnStartPresHero" class="btn-presentation" style="padding: 12px 24px; font-size: 0.95rem;">
+            <span>Запустити показ слайдів</span>
+          </button>
+        </div>
+
+        <!-- Metrics Row -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-icon">🌱</div>
+            <div class="metric-value">До 25 липня</div>
+            <div class="metric-label">Дбайливий догляд та підв'язка</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon">🧺</div>
+            <div class="metric-value highlight">25 Липня</div>
+            <div class="metric-label">День великого збору врожаю</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon">😋</div>
+            <div class="metric-value">100% Хрускіт</div>
+            <div class="metric-label">Частину з'їдено свіжою одразу</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon">🫙</div>
+            <div class="metric-value highlight">4 Банки</div>
+            <div class="metric-label">Золотий запас консервації на зиму</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter 1: Growth & Care -->
+    <section class="container" id="growth">
+      <div class="chapter-block">
+        <div class="chapter-inner">
+          <div class="chapter-media">
+            <img src="photo_2026-09-04_07-12-14.jpg" alt="Огіркова грядка Мачур Аліни з шпалерою" loading="lazy">
+            <div class="media-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              Фото 1: Огіркові ряди на городі
+            </div>
+            <button class="media-zoom-btn" onclick="openLightbox('photo_2026-09-04_07-12-14.jpg')" title="Збільшити фото">🔍</button>
+          </div>
+          <div class="chapter-content">
+            <div class="chapter-date-badge">Етап 1 • Травень – 25 липня</div>
+            <h2 class="chapter-title">Шпалерний догляд та зелені джунглі</h2>
+            <p class="chapter-desc">
+              Секрет успіху починався з правильної агротехніки. Огірки не стелилися по землі, а охайно тягнулися догори по спеціально натягнутих шпалерних шнурах (як чудово видно на фото!).
+            </p>
+            <ul class="feature-list">
+              <li>
+                <span class="feature-icon">✓</span>
+                <span><strong>Вертикальне плетиво:</strong> рослини отримували максимум літнього сонця та вільного провітрювання, що захистило їх від хвороб.</span>
+              </li>
+              <li>
+                <span class="feature-icon">✓</span>
+                <span><strong>Полив теплою водою:</strong> щовечора після спадання спеки, щоб огірочки ніколи не були гіркими.</span>
+              </li>
+              <li>
+                <span class="feature-icon">✓</span>
+                <span><strong>Органічне підживлення:</strong> тільки натуральні компоненти для 100% екологічно чистого врожаю.</span>
+              </li>
+            </ul>
+            <div class="quote-box">
+              «Кожен листочок потребував уваги: підпушування ґрунту, вчасна підв'язка вусиків і контроль зав'язі стали щоденною радісною справою!» — Аліна
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter 2: Harvest Day -->
+    <section class="container" id="harvest">
+      <div class="chapter-block">
+        <div class="chapter-inner reversed">
+          <div class="chapter-content">
+            <div class="chapter-date-badge">Етап 2 • 25 Липня 2026</div>
+            <h2 class="chapter-title">Тріумф 25 липня: Повний пакет свіжих огірочків!</h2>
+            <p class="chapter-desc">
+              25 липня настав кульмінаційний момент усього літнього сезону! Кущі віддячили рясним, щільним та неймовірно красивим врожаєм.
+            </p>
+            <ul class="feature-list">
+              <li>
+                <span class="feature-icon">🧺</span>
+                <span><strong>Щедрий кошик:</strong> цілий великий пакет пружних, пухирчастих огірків насиченого смарагдового кольору.</span>
+              </li>
+              <li>
+                <span class="feature-icon">🌿</span>
+                <span><strong>Ідеальний калібр:</strong> не перерослі, корнішонного типу, з яскравими жовтими квіточками на кінчиках.</span>
+              </li>
+              <li>
+                <span class="feature-icon">✨</span>
+                <span><strong>Справжня гордість:</strong> результат праці учениці 7-Б класу перевищив усі очікування родини!</span>
+              </li>
+            </ul>
+            <button class="interactive-crunch-btn" onclick="sfx.playCrunch()">
+              <span>Похрумтіти віртуально 🥒</span>
+            </button>
+          </div>
+          <div class="chapter-media">
+            <img src="photo_2026-09-04_07-12-04.jpg" alt="Пакет зібраних свіжих огірків 25 липня" loading="lazy">
+            <div class="media-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Фото 2: Збір врожаю 25 липня
+            </div>
+            <button class="media-zoom-btn" onclick="openLightbox('photo_2026-09-04_07-12-04.jpg')" title="Збільшити фото">🔍</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter 3: First Tasting -->
+    <section class="container" id="tasting">
+      <div class="chapter-block">
+        <div class="chapter-inner">
+          <div class="chapter-media">
+            <img src="photo_2026-09-04_07-12-20.jpg" alt="Свіжий пухирчастий огірок у руці" loading="lazy">
+            <div class="media-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              Фото 3: Перша дегустація прямо з грядки
+            </div>
+            <button class="media-zoom-btn" onclick="openLightbox('photo_2026-09-04_07-12-20.jpg')" title="Збільшити фото">🔍</button>
+          </div>
+          <div class="chapter-content">
+            <div class="chapter-date-badge">Етап 3 • Нагорода праці</div>
+            <h2 class="chapter-title">«Частину з'їла одразу!»: Найсмачніший момент</h2>
+            <p class="chapter-desc">
+              Хіба можна втриматися, коли в руках тримаєш щойно зірваний прохолодний огірочок, вкритий дрібними ніжними шипами? Перша частина зібраного врожаю пішла на свіжий літній салат та миттєве смакування!
+            </p>
+            <ul class="feature-list">
+              <li>
+                <span class="feature-icon">😋</span>
+                <span><strong>Соковитість:</strong> огірок бризкає соком при першому ж укусі.</span>
+              </li>
+              <li>
+                <span class="feature-icon">🍃</span>
+                <span><strong>Жодної краплі гіркоти:</strong> завдяки регулярному вечірньому зволоженню земля не пересихала.</span>
+              </li>
+              <li>
+                <span class="feature-icon">🥗</span>
+                <span><strong>Вітамінний заряд:</strong> вітаміни C, K, калій та клітковина прямо з власного еко-городу.</span>
+              </li>
+            </ul>
+            <div class="quote-box">
+              «З'їсти свій власний огірок, який ти виростила з крихітного насіння — це зовсім інший рівень задоволення, ніж купити в магазині!»
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter 4: The 4 Jars for Winter -->
+    <section class="jars-section" id="jars">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">Кулінарний фініш</span>
+          <h2 class="section-title">4 Банки на зиму: Золотий запас Аліни</h2>
+        </div>
+
+        <p class="jars-intro">
+          Увесь залишок добірного врожаю після дегустації було вирішено законсервувати! Рівно <strong>4 фірмові банки</strong> із хрустким секретом та прянощами готові зігрівати теплом літа в холодні зимові дні. Натисніть на будь-яку банку, щоб відкрити її таємний рецепт!
+        </p>
+
+        <div class="jars-grid">
+          <!-- Jar 1 -->
+          <div class="jar-card" onclick="openJarModal(1)">
+            <div class="jar-number-pill">Банка #1</div>
+            <div class="jar-visual-container">
+              <div class="jar-illustration">
+                <div class="jar-cap"></div>
+                <div class="jar-neck"></div>
+                <div class="jar-body">
+                  <div class="jar-shine"></div>
+                  <div class="jar-cucumbers-inside">
+                    <div class="mini-cuke"></div>
+                    <div class="mini-cuke"></div>
+                    <div class="mini-cuke"></div>
+                  </div>
+                  <div class="jar-bubbles"><span>o</span><span>°</span><span>o</span></div>
+                </div>
+              </div>
+            </div>
+            <h3 class="jar-title">Хрумка Класика</h3>
+            <div class="jar-flavor">Кріп + Листя смородини</div>
+            <p class="jar-secret-preview">Фірмове 2-годинне крижане замочування перед закруткою для неперевершеної пружності.</p>
+            <button class="btn-open-jar">Відкрити рецепт баночки 🔍</button>
+          </div>
+
+          <!-- Jar 2 -->
+          <div class="jar-card" onclick="openJarModal(2)">
+            <div class="jar-number-pill">Банка #2</div>
+            <div class="jar-visual-container">
+              <div class="jar-illustration">
+                <div class="jar-cap" style="background: linear-gradient(180deg, #eab308, #a16207);"></div>
+                <div class="jar-neck"></div>
+                <div class="jar-body">
+                  <div class="jar-shine"></div>
+                  <div class="jar-cucumbers-inside">
+                    <div class="mini-cuke" style="transform: rotate(35deg);"></div>
+                    <div class="mini-cuke" style="transform: rotate(-10deg);"></div>
+                    <div class="mini-cuke" style="transform: rotate(45deg);"></div>
+                  </div>
+                  <div class="jar-bubbles"><span>°</span><span>o</span><span>°</span></div>
+                </div>
+              </div>
+            </div>
+            <h3 class="jar-title">Пряний Корнішон</h3>
+            <div class="jar-flavor">Французька гірчиця + Хрін</div>
+            <p class="jar-secret-preview">Пікантні міні-огірочки з вишуканими зернятами гірчиці для святкового столу.</p>
+            <button class="btn-open-jar">Відкрити рецепт баночки 🔍</button>
+          </div>
+
+          <!-- Jar 3 -->
+          <div class="jar-card" onclick="openJarModal(3)">
+            <div class="jar-number-pill">Банка #3</div>
+            <div class="jar-visual-container">
+              <div class="jar-illustration">
+                <div class="jar-cap" style="background: linear-gradient(180deg, #f59e0b, #b45309);"></div>
+                <div class="jar-neck"></div>
+                <div class="jar-body">
+                  <div class="jar-shine"></div>
+                  <div class="jar-cucumbers-inside">
+                    <div class="mini-cuke" style="transform: rotate(-25deg);"></div>
+                    <div class="mini-cuke" style="transform: rotate(15deg);"></div>
+                    <div class="mini-cuke" style="transform: rotate(-35deg);"></div>
+                  </div>
+                  <div class="jar-bubbles"><span>o</span><span>o</span><span>°</span></div>
+                </div>
+              </div>
+            </div>
+            <h3 class="jar-title">Бабусине Золото</h3>
+            <div class="jar-flavor">Лист дуба + Часничок</div>
+            <p class="jar-secret-preview">Родинна мудрість: дубовий лист дає міцність, а щедрий часник — духмяний аромат.</p>
+            <button class="btn-open-jar">Відкрити рецепт баночки 🔍</button>
+          </div>
+
+          <!-- Jar 4 -->
+          <div class="jar-card" onclick="openJarModal(4)">
+            <div class="jar-number-pill">Банка #4</div>
+            <div class="jar-visual-container">
+              <div class="jar-illustration">
+                <div class="jar-cap" style="background: linear-gradient(180deg, #10b981, #047857);"></div>
+                <div class="jar-neck"></div>
+                <div class="jar-body">
+                  <div class="jar-shine"></div>
+                  <div class="jar-cucumbers-inside">
+                    <div class="mini-cuke" style="transform: rotate(20deg);"></div>
+                    <div class="mini-cuke" style="transform: rotate(-20deg);"></div>
+                    <div class="mini-cuke" style="transform: rotate(5deg);"></div>
+                  </div>
+                  <div class="jar-bubbles"><span>°</span><span>°</span><span>o</span></div>
+                </div>
+              </div>
+            </div>
+            <h3 class="jar-title">Новорічний Тріумф 7-Б</h3>
+            <div class="jar-flavor">Спеціальний ексклюзив 2027</div>
+            <p class="jar-secret-preview">Запечатано з інструкцією: відкрити строго під новорічну ялинку та бій годинника!</p>
+            <button class="btn-open-jar">Відкрити рецепт баночки 🔍</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diary and Timeline -->
+    <section class="diary-section" id="diary">
+      <div class="container">
+        <div class="diary-card">
+          <div class="section-title-wrap" style="margin-bottom: 25px;">
+            <span class="section-tag">Хронологія проєкту</span>
+            <h2 class="section-title" style="font-size: 2rem;">Щоденник спостережень юного агронома</h2>
+          </div>
+
+          <div class="timeline-steps">
+            <div class="timeline-item">
+              <div class="t-date">ТРАВЕНЬ</div>
+              <div class="t-title">🌱 Посів та сходи</div>
+              <p class="t-desc">Підготовка пухкого родючого ґрунту, замочування насіння, перші зелені паростки.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="t-date">ЧЕРВЕНЬ</div>
+              <div class="t-title">🧵 Шпалера та догляд</div>
+              <p class="t-desc">Натягування опорних шнурів, напрямок росту пагонів, регулярний вечірній полив.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="t-date">ДО 25 ЛИПНЯ</div>
+              <div class="t-title">🌼 Буйне цвітіння</div>
+              <p class="t-desc">Поява яскравих жовтих квіток, активне формування пухирчастих зав'язей.</p>
+            </div>
+            <div class="timeline-item" style="border-color: var(--accent-lime); background: rgba(34, 197, 94, 0.15);">
+              <div class="t-date">25 ЛИПНЯ</div>
+              <div class="t-title">🎉 Великий збір та закрутка</div>
+              <p class="t-desc">Збір повного пакета огірків, смачна дегустація та стерилізація 4 банок на зиму!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diploma / Conclusions -->
+    <section class="container" id="diploma">
+      <div class="diploma-card">
+        <div class="diploma-stamp">
+          <span>7-Б Клас</span>
+          <span>12 БАЛІВ</span>
+          <span>ПЕРЕВІРЕНО</span>
+        </div>
+        <div class="diploma-title">🏆 Почесний Сертифікат Агронома</div>
+        <div class="diploma-subtitle">Завершення літнього шкільного дослідження з відзнакою</div>
+        <div class="diploma-recipient">Мачур Аліна</div>
+        <p class="diploma-desc">
+          Учениця 7-Б класу успішно довела на практиці: дбайливий догляд, шпалерне вирощування та любов до природи дають неперевершений результат — соковитий літній врожай та 4 банки хрумкої консервації на всю зиму!
+        </p>
+
+        <button id="btnDiplomaCelebrate" class="interactive-crunch-btn" style="padding: 14px 32px; font-size: 1.05rem;">
+          <span>🎉 Запустити святковий салют 7-Б!</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal for Jars -->
+  <div id="jarModal" class="modal-overlay">
+    <div class="modal-card">
+      <button id="modalCloseBtn" class="modal-close-btn">&times;</button>
+      <div id="modalBadge" style="display: inline-block; padding: 4px 12px; background: rgba(34, 197, 94, 0.25); color: var(--accent-lime); border-radius: 20px; font-size: 0.8rem; font-weight: 800; margin-bottom: 12px;"></div>
+      <h2 id="modalTitle" style="color: #ffffff; font-size: 1.6rem; font-weight: 900; margin-bottom: 4px;"></h2>
+      <p id="modalSubtitle" style="color: var(--accent-glow); font-size: 0.95rem; margin-bottom: 8px;"></p>
+      <div id="modalSpecs" style="font-size: 0.85rem; color: var(--text-muted); padding-bottom: 14px; border-bottom: 1px solid var(--border-color); margin-bottom: 16px;"></div>
+
+      <h4 style="color: #ffffff; font-size: 1rem; margin-bottom: 10px;">📋 Інгредієнти та прянощі:</h4>
+      <ul id="modalIngredients" style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem; color: var(--text-main); margin-bottom: 20px;"></ul>
+
+      <div style="background: rgba(6, 25, 15, 0.8); border-left: 4px solid var(--accent-lime); padding: 14px; border-radius: 4px;">
+        <h5 style="color: var(--accent-lime); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 4px;">Секрет хрускоту від Аліни:</h5>
+        <p id="modalSecret" style="font-size: 0.92rem; color: var(--text-sub);"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightboxModal" class="lightbox-modal">
+    <img id="lightboxImg" src="" alt="Перегляд фотографії">
+  </div>
+
+  <!-- FULLSCREEN PRESENTATION VIEWER (FOR CLASS / PROJECTOR) -->
+  <div id="presentationViewer" class="presentation-viewer">
+    <div class="pres-header">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="font-size: 24px;">🥒</span>
+        <div>
+          <h3 style="font-size: 1.1rem; color: #ffffff;">Огірковий Тріумф • Презентація для класу</h3>
+          <p style="font-size: 0.78rem; color: var(--text-muted);">Авторка: Мачур Аліна, учениця 7-Б класу</p>
+        </div>
+      </div>
+      <button id="btnClosePres" style="background: rgba(255,255,255,0.1); border: 1px solid var(--border-color); color: #fff; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-weight: 700;">
+        Закрити слайди (Esc) ✕
+      </button>
+    </div>
+
+    <div class="pres-slide-container">
+      <!-- Slide 1: Title -->
+      <div class="pres-slide active">
+        <div style="background: var(--bg-card); border: 2px solid var(--border-glow); border-radius: var(--radius-lg); padding: 50px 40px; text-align: center; backdrop-filter: var(--glass-blur);">
+          <div class="hero-pill">7-Б клас • Дослідницький проєкт</div>
+          <h1 style="font-size: 2.8rem; font-weight: 900; margin-bottom: 16px; color: #ffffff;">
+            Вирощування огірків: <br>
+            <span style="color: var(--accent-lime);">Від сходів до 4 банок консервації</span>
+          </h1>
+          <p style="font-size: 1.25rem; color: var(--text-sub); max-width: 650px; margin: 0 auto 30px;">
+            Доповідачка: <strong>Мачур Аліна</strong><br>
+            Ключова дата тріумфу: <strong>25 липня 2026 року</strong>
+          </p>
+          <div style="display: flex; justify-content: center; gap: 20px;">
+            <div style="background: rgba(6,25,15,0.8); padding: 15px 25px; border-radius: 12px; border: 1px solid var(--border-color);">
+              <div style="font-size: 1.8rem; font-weight: 800; color: var(--accent-glow);">25.07</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Збір врожаю</div>
+            </div>
+            <div style="background: rgba(6,25,15,0.8); padding: 15px 25px; border-radius: 12px; border: 1px solid var(--border-color);">
+              <div style="font-size: 1.8rem; font-weight: 800; color: var(--gold);">4 Банки</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Запаси на зиму</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Growth photo -->
+      <div class="pres-slide">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 30px; align-items: center;">
+          <img src="photo_2026-09-04_07-12-14.jpg" style="width: 100%; height: 420px; object-fit: cover; border-radius: 14px; border: 1px solid var(--border-glow);" alt="Грядка">
+          <div>
+            <div class="chapter-date-badge">Слайд 2 • Догляд до 25 липня</div>
+            <h2 style="font-size: 2rem; color: #ffffff; margin-bottom: 14px;">Шпалерний метод вирощування</h2>
+            <p style="font-size: 1.05rem; color: var(--text-sub); margin-bottom: 16px;">
+              На фото наочно видно систему натягнутих шнурів-шпалер. Завдяки цьому огіркові лози піднімалися до світла, не торкаючись землі, що гарантувало чистоту плодів та захист від грибкових хвороб.
+            </p>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; color: var(--text-main); font-size: 0.95rem;">
+              <li>🍃 Щоденний вечірній полив нагрітою на сонці водою</li>
+              <li>☀️ Оптимальне освітлення кожного листочка</li>
+              <li>🧑‍🌾 Підпушування прикореневої зони</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Harvest photo -->
+      <div class="pres-slide">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 30px; align-items: center;">
+          <div>
+            <div class="chapter-date-badge">Слайд 3 • Кульмінація 25 липня</div>
+            <h2 style="font-size: 2rem; color: #ffffff; margin-bottom: 14px;">Збір довгоочікуваного врожаю!</h2>
+            <p style="font-size: 1.05rem; color: var(--text-sub); margin-bottom: 16px;">
+              25 липня настав день збору. Повний пакет свіжих, пружних, пухирчастих огірків прямо з грядки. Кожен огірочок — добірний та бездоганний за формою.
+            </p>
+            <div style="background: rgba(34, 197, 94, 0.15); border: 1px solid var(--border-glow); padding: 16px; border-radius: 12px; margin-top: 15px;">
+              <div style="color: var(--accent-lime); font-weight: 800; font-size: 1.1rem; margin-bottom: 4px;">Результат збору 25 липня:</div>
+              <div style="font-size: 0.95rem; color: var(--text-sub);">Врожаю вистачило і на ситну свіжу дегустацію, і на повноцінну зимову консервацію!</div>
+            </div>
+          </div>
+          <img src="photo_2026-09-04_07-12-04.jpg" style="width: 100%; height: 420px; object-fit: cover; border-radius: 14px; border: 1px solid var(--border-glow);" alt="Пакет з огірками">
+        </div>
+      </div>
+
+      <!-- Slide 4: Tasting photo -->
+      <div class="pres-slide">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 30px; align-items: center;">
+          <img src="photo_2026-09-04_07-12-20.jpg" style="width: 100%; height: 420px; object-fit: cover; border-radius: 14px; border: 1px solid var(--border-glow);" alt="Огірок у руці">
+          <div>
+            <div class="chapter-date-badge">Слайд 4 • Перша проба</div>
+            <h2 style="font-size: 2rem; color: #ffffff; margin-bottom: 14px;">«Частину з'їла одразу!»</h2>
+            <p style="font-size: 1.05rem; color: var(--text-sub); margin-bottom: 16px;">
+              Найприємніший момент будь-якого агронома — перша дегустація. Свіжий пухирчастий огірочок, зігрітий літнім сонцем, виявився неймовірно хрустким, ніжним та солодкуватим без краплі гіркоти!
+            </p>
+            <button class="interactive-crunch-btn" onclick="sfx.playCrunch()">
+              <span>Послухати хрускіт 🥒</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: The 4 Jars -->
+      <div class="pres-slide">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 35px; text-align: center;">
+          <div class="chapter-date-badge">Слайд 5 • Стратегічний запас</div>
+          <h2 style="font-size: 2.2rem; color: #ffffff; margin-bottom: 10px;">Закрутка в 4 банки на зиму</h2>
+          <p style="font-size: 1rem; color: var(--text-sub); max-width: 650px; margin: 0 auto 25px;">
+            Увесь основний врожай закручено за фірмовими рецептами з кропом, смородиновим листям, часником та спеціями:
+          </p>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px;">
+            <div style="background: rgba(6,25,15,0.7); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 12px;">
+              <div style="font-size: 2rem;">🫙</div>
+              <div style="color: var(--accent-lime); font-weight: 800; font-size: 0.95rem; margin-top: 6px;">Банка 1</div>
+              <div style="color: var(--text-sub); font-size: 0.8rem;">Класична хрумка</div>
+            </div>
+            <div style="background: rgba(6,25,15,0.7); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 12px;">
+              <div style="font-size: 2rem;">🫙</div>
+              <div style="color: var(--accent-lime); font-weight: 800; font-size: 0.95rem; margin-top: 6px;">Банка 2</div>
+              <div style="color: var(--text-sub); font-size: 0.8rem;">Пряні корнішони</div>
+            </div>
+            <div style="background: rgba(6,25,15,0.7); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 12px;">
+              <div style="font-size: 2rem;">🫙</div>
+              <div style="color: var(--accent-lime); font-weight: 800; font-size: 0.95rem; margin-top: 6px;">Банка 3</div>
+              <div style="color: var(--text-sub); font-size: 0.8rem;">Бабусин рецепт</div>
+            </div>
+            <div style="background: rgba(6,25,15,0.7); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 12px;">
+              <div style="font-size: 2rem;">🫙</div>
+              <div style="color: var(--gold); font-weight: 800; font-size: 0.95rem; margin-top: 6px;">Банка 4</div>
+              <div style="color: var(--text-sub); font-size: 0.8rem;">Новорічний запас</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Summary -->
+      <div class="pres-slide">
+        <div style="background: var(--bg-card); border: 2px solid var(--accent-lime); border-radius: var(--radius-lg); padding: 40px; text-align: center;">
+          <div style="font-size: 3rem; margin-bottom: 10px;">🌟</div>
+          <h2 style="font-size: 2.2rem; color: var(--gold); margin-bottom: 12px;">Висновки шкільного дослідження</h2>
+          <p style="font-size: 1.1rem; color: var(--text-sub); max-width: 700px; margin: 0 auto 20px;">
+            1. Власноруч вирощені огірки перевершують магазинної якості завдяки свіжості та відсутності хімікатів.<br>
+            2. Шпалерний метод полегшує догляд та збір врожаю.<br>
+            3. Результат: подвійна користь — літні вітаміни та запас хрумких консервацій на зиму!
+          </p>
+          <div style="font-size: 1.15rem; font-weight: 800; color: #ffffff;">
+            Дякую за увагу! Авторка: Мачур Аліна, 7-Б клас 🥒✨
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pres-footer">
+      <button id="btnPrevSlide" class="pres-nav-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"></path></svg>
+        Назад
+      </button>
+      <div id="slideIndicator" style="font-weight: 800; color: var(--accent-lime); font-size: 1.1rem;">
+        1 / 6
+      </div>
+      <button id="btnNextSlide" class="pres-nav-btn">
+        Вперед
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"></path></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p style="font-weight: 700; color: #ffffff; margin-bottom: 6px;">
+        🥒 Огірковий Тріумф • Дослідницький проєкт учениці 7-Б класу Мачур Аліни
+      </p>
+      <p style="color: var(--text-muted); font-size: 0.85rem;">
+        З любов'ю до природи, рідної землі та смачних хрумких закруток • Літо 2026
+      </p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
